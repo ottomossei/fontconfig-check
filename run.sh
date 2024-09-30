@@ -8,7 +8,8 @@ fi
 mkdir build
 pushd build
 
-cmake .. -DWITH_IMAGE_GENERATION=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
+# TODO xterm is under development
+cmake .. -DWITH_IMAGE_GENERATION=ON -DWITH_XTERMINAL_FONT=OFF -DCMAKE_BUILD_TYPE=Release -G Ninja
 ninja
 
 popd

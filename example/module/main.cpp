@@ -6,6 +6,10 @@
 #include "image_generation_module.h"
 #endif
 
+#ifdef WITH_XTERMINAL_FONT
+#include "xterminal_font_module.h"
+#endif
+
 void setupModules(fontconfigcheck::FontconfigCheck &fontChecker, const std::string &fontFile)
 {
 #ifdef WITH_IMAGE_GENERATION
@@ -14,6 +18,14 @@ void setupModules(fontconfigcheck::FontconfigCheck &fontChecker, const std::stri
     // std::unique_ptrでImageGenerationModuleの管理を安全に行う
     auto imgGen = std::make_unique<ImageGenerationModule>(fontFile, "Hello, World!", "output.png");
     fontChecker.addModule(std::move(imgGen)); // モジュールを安全に管理
+#endif
+
+#ifdef WITH_XTERMINAL_FONT
+    std::cout << "XterminalFont module enabled" << std::endl;
+
+    // XterminalFontモジュールの追加
+    auto xtermFont = std::make_unique<XterminalFont>(fontFile);
+    fontChecker.addModule(std::move(xtermFont)); // モジュールを安全に管理
 #endif
 }
 

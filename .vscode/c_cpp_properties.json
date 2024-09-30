@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/freetype2"
+                "/usr/include/freetype2",
+                "${workspaceFolder}/modules/xterminal_font/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
